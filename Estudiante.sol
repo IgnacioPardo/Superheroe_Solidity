@@ -4,7 +4,7 @@ pragma solidity ^0.8.10;
 contract Superheroe{
 
     string private _name;
-    mapping(string => uint) private _poderes;
+    mapping(string => uint) private _powers;
     address private _owner;
 
     constructor(string memory name_){
@@ -18,11 +18,11 @@ contract Superheroe{
 
     function set_power(string memory poder, uint valor) public{
         require(msg.sender == _owner, "Solo el owner puede setear poderes");
-        _poderes[poder] = valor;
+        _powers[poder] = valor;
     }
 
     function get_power(string memory poder) public view returns (uint){
-        return _poderes[poder];
+        return _powers[poder];
     }
 
 }
